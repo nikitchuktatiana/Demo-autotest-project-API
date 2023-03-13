@@ -1,0 +1,16 @@
+stages:
+  - tests
+  - report
+
+tests:
+  stage: tests
+  script:
+    - mvn test
+
+report:
+  stage: report
+  script:
+    - allure report ./target/allure-..
+  artifacts:
+    paths:
+      - target/site/allure-maven-plugin
